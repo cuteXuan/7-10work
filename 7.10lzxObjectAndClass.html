@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+</body>
+</html>
+
+<script type="text/javascript">
+	
+	function MyObj() {
+		// 获取最大值
+		this.getMax = function(arr) {
+			let max = arr[0]
+			for(let i=0;i<arr.length;i++) {
+				if(arr[i] > max) {
+					max = arr[i]
+				}
+			}
+			return max
+		}
+		// 获取最小值
+		this.getMin = function(arr) {
+			let min = arr[0]
+			for(let i=0;i<arr.length;i++) {
+				if(arr[i] < min) {
+					min = arr[i]
+				}
+			}
+			return min
+		}
+		// 排序
+		this.sort = function(arr) {
+			let currendVal,preIndex
+			for(let i = 1;i<arr.length;i++) {
+				currendVal = arr[i]
+				preIndex = i -1
+				while(preIndex >=0 && arr[preIndex] > currendVal) {
+					arr[preIndex+1] = arr[preIndex]
+					preIndex--
+				}
+				arr[preIndex+1] = currendVal
+			}
+			return arr
+		}
+		// 去重
+		this.deduplication = function(arr) {
+			const hash = {}
+			const newArr = []
+			for(let i = 0;i<arr.length;i++) {
+				if(hash[arr[i]] == undefined) {
+					hash[arr[i]] = 1
+					newArr.push(arr[i])
+				}
+			}
+			return newArr
+		}
+	}
+
+	const arr = [3,2,1,1,2,3]
+	const myObj = new MyObj()
+	const res1 = myObj.deduplication(arr)
+	const res2 = myObj.getMax(arr)
+	const res3 = myObj.getMin(arr)
+	const res4 = myObj.sort(arr)
+	console.log(res1)
+	console.log(res2)
+	console.log(res3)
+	console.log(res4)
+
+	// 类的方式
+	class OwnObj {
+		// 获取最大值
+		getMax (arr) {
+			let max = arr[0]
+			for(let i=0;i<arr.length;i++) {
+				if(arr[i] > max) {
+					max = arr[i]
+				}
+			}
+			return max
+		}
+		// 获取最小值
+		getMin (arr) {
+			let min = arr[0]
+			for(let i=0;i<arr.length;i++) {
+				if(arr[i] < min) {
+					min = arr[i]
+				}
+			}
+			return min
+		}
+		// 排序
+		sort (arr) {
+			let currendVal,preIndex
+			for(let i = 1;i<arr.length;i++) {
+				currendVal = arr[i]
+				preIndex = i -1
+				while(preIndex >=0 && arr[preIndex] > currendVal) {
+					arr[preIndex+1] = arr[preIndex]
+					preIndex--
+				}
+				arr[preIndex+1] = currendVal
+			}
+			return arr
+		}
+		// 去重
+		deduplication (arr) {
+			const hash = {}
+			const newArr = []
+			for(let i = 0;i<arr.length;i++) {
+				if(hash[arr[i]] == undefined) {
+					hash[arr[i]] = 1
+					newArr.push(arr[i])
+				}
+			}
+			return newArr
+		}
+	}
+
+	const ownObj = new OwnObj()
+	const res5 = ownObj.deduplication(arr)
+	const res6 = ownObj.getMax(arr)
+	const res7 = ownObj.getMin(arr)
+	const res8 = ownObj.sort(arr)
+	console.log(res5)
+	console.log(res6)
+	console.log(res7)
+	console.log(res8)
+
+</script>
