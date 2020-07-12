@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <title>2020/7/12/Object/Math/String/Array</title>
+</head>
+<body>
+
+</body>
+<script>
+	/*
+	Math对象
+	abs() ceil() floor() max() min() random() round() pow() sqit()
+	*/
+	let num = 5
+	let flontNum = 1.2
+	let num2 = -5
+    //Math对象
+	// 取绝对值 abs()
+	console.log(Math.abs(num2))
+	// 向上取整 ceil()
+	console.log(Math.ceil(flontNum))
+	// 向下取整 floor()
+	console.log(Math.floor(flontNum))
+	// 取最大值 max()
+	console.log(Math.max(num,num2))
+	// 取最小值 min()
+	console.log(Math.min(num,num2))
+	// 随机数 random()
+	console.log(Math.random())
+	// 四舍五入 round()
+	console.log(Math.round())
+	// 几次方 pow()
+	console.log(Math.pow(2,3))
+	// 开方 sqit()
+	console.log(Math.sqrt(9))
+    
+
+    /*
+	String 
+	indexOf() lastIndexOf() split() slice() substring() replace()
+	toUpperCase()  toLowerCase() concat() trim() charAt()
+	*/
+	let string = " String "
+    // 从正面查找
+	console.log(string.indexOf("S"));
+	// 从后面查找
+	console.log(string.lastIndexOf("S"));
+	// 将字符拆为数组
+	console.log(string.split(''));
+	// 提取字符串
+	console.log(string.slice(3,5));
+	console.log(string.substring(3,4));
+	// 替换字符串内容
+	console.log(string.replace("A","a"));
+	// 把字符串转换为 大写/小写
+	console.log(string.toUpperCase());
+	console.log(string.toLowerCase());
+	// 连接两个或多个字符串
+	console.log(string.concat("xxx","xxx"));
+	// 删除字符串两端的空白符
+	console.log(string.trim())
+	// 返回字符串中指定下标
+    console.log(string.charAt(3));
+
+    /*
+	Array 对象
+	join()  reverse()	sort()	concat()	slice()	splice()	push()	pop()
+	unshift()	shift()	toString()	toLocaleString()
+	*/
+	// join()
+	let arr = [1,2,3,4,5]
+	arr.join()     // "1,2,3,4,5"
+	arr.join("")   // "12345"
+	arr.join("-")   // "1-2-3-4-5"
+
+	//reverse()
+	let arr = [1,2,3,4,5]
+	arr.reverse()     // [5, 4, 3, 2, 1]
+
+	// sort()
+	let arr= [2,3,1,4,5]
+	arr.sort()     // [1, 2, 3, 4, 5]
+	let arr1= [-1,-2,-3,2,3,1,4,5]   
+	arr1.sort()     // [-1, -2, -3, 1, 2, 3, 4, 5]
+	let arr2 = [-1,-2,-3,2,3,1,4,5] 
+	arr2.sort(function(a,b) {return a-b}) // [-3, -2, -1, 1, 2, 3, 4, 5]
+
+	// concat()
+	let a = [1]
+	let b = [2]
+	let c = a.concat(b)  // 1,2
+
+	// slice()
+	let a  = [1,2,3,4,5]
+	let b = a.slice()      // (5) [1, 2, 3, 4, 5]
+	let b1 = a.slice(-2)   // (2) [4, 5]
+	let b2 = a.slice(2)    // (3) [3, 4, 5]
+	let b3 = a.slice(2,3)    // [3]
+
+	//splice()
+	let a = [1,2,3,4,5]
+	let b1 = a.splice(3)  
+	// a (3) [1, 2, 3]
+	// b1 (2) [4, 5]
+
+	let a = [1,2,3,4,5]
+	let b2 = a.splice(3,1)  
+	// a (4) [1, 2, 3, 5]
+	// b2 [4]
+
+	// 前两个参数是删除的，第三个参数是插入的数据
+	let a = [1,2,3,4,5]
+	let b3 = a.splice(3,1,1,2,3,4) 
+	// a (8) [1, 2, 3, 1, 2, 3, 4, 5]
+	// b3 [4]
+
+	// push(),pop(),unshift(),shift()
+
+	let a = [1,2,3]
+	a.push(4)  // [1,2,3,4]
+	a.unshift(0) // [0,1,2,3,4]
+	// push尾部添加数据，unshift头部添加数据，
+	// 返回修改后的数组
+
+	let a = [1,2,3]
+	a.pop()   // 3
+	a.shift() // 1
+	// pop  返回尾部删除的数据
+	// shitf 返回头部删除的数据
+
+	toString()
+	// 作用：将素组转换为字符串
+	// 是否改变原数组：否
+	// 返回：数组字符串
+	toLocalString()
+	// 作用：将素组转换为字符串
+	// 是否改变原数组：否
+	// 返回：数组字符串
+	// 自己之前写的
+	// https://blog.csdn.net/qq_43238599/article/details/105368778
+
+
+	 /*Object
+	*/
+    let objectOne = {name:"；李泽轩"};
+    let objectTwo = {age:"22"};
+    let objectThree = {sing:function () {
+            console.log("睡觉");
+        }}
+     
+
+    // is方法判断两个值是否相同
+    console.log(Object.is(objectTwo,objectOne));   //false
+    console.log(Object.is(objectTwo,objectTwo));   //true
+
+    // 原型链
+    function functionOne(){
+    }
+    let functionTwo = functionOne();
+    console.log(functionOne.prototype.isPrototypeOf(functionTwo));  //false
+
+        //给对象定义属性
+	let objectFour = new Object();
+    Object.defineProperty(objectFour, 'age', {
+        configurable: true,
+        writable: true,
+        enumerable: true,
+        value: 22
+    })
+    console.log(objectFour.age);  //22
+
+        //定义或者修改多个属性
+	let objectFive = new Object();
+    Object.defineProperties(objectFive, {
+        name: {
+            value: '李泽轩',
+            configurable: false,
+            writable: true,
+            enumerable: true
+        },
+        age: {
+            value: 22,
+            configurable: true,
+            writable: true,
+            enumerable: true
+        }
+    })
+    console.log(objectFive.name, objectFive.age);   // 李泽轩, 22
+
+        //阻止修改属性的值
+    Object.freeze(objectFive);
+    objectFive.name = "小轩";
+    console.log(objectFive.name, objectFive.age);   // 李泽轩, 22
+
+    //for in循环,遍历出对象中的键、值
+    for (let) key in objectFive){
+        console.log(key,objectFive[key]);
+    }
+
+    //获取到所有的键
+    var keys = Object.keys(objectFive);
+    console.log(keys);
+
+    //返回对象的所有属性
+    var props = Object.getOwnPropertyNames(objectFive);
+    console.log(props);
+
+
+    var syms = Object.getOwnPropertySymbols(objectFive);
+    console.log(props);
+
+    var refs =Reflect.ownKeys(objectFive);
+    console.log(refs);
+
+    //返回对象的所有属性值
+    var values = Object.values(objectFive);
+    console.log(values);
+    
+
+
+</script>
+</html>
