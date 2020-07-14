@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="UTF-8">
+<head>
+    <meta charset="UTF-8">
+	<title>选项卡</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			padding-top: 100px;
+			margin: 0 30%;
+		}
+		.tab {
+			width: 400px;
+			display: flex;
+			justify-content: space-around;
+			border: 1px solid #ccc;
+		}
+		.tab> div {
+			width: 50%;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			cursor: pointer;
+		}
+		.current-tab {
+			background: #00B262;
+		}
+		.content {
+			width: 400px;
+		}
+		.content img{
+			width: 100%;
+			/* display:none; */
+		}
+		.dis {
+			display: none;
+		}
+		.current-img {
+			display: block;
+		}
+
+	</style>
+</head>
+<body>
+	<div class='tab'>
+		<div class="current-tab">今日疯抢</div>
+		<div>量限贩</div>
+	</div>
+	<div class="content">
+		<img src="https://img.alicdn.com/tfs/TB1jNScP6TpK1RjSZKPXXa3UpXa-400-400.jpg" class="dis current-img"></img>
+		<img src="https://img.alicdn.com/tfs/TB1_O_LgSrqK1RjSZK9XXXyypXa-400-400.jpg" class="dis"></img>
+	</div>
+</body>
+<script>
+	let disList = document.querySelectorAll('.tab div')
+	let imdList = document.querySelectorAll('.content img')
+	for(let i = 0;i<disList.length;i++) {
+		disList[i].onclick = function() {
+			handle(i)
+		}
+	}
+	setInterval(function() {
+		handle(test())
+	},2000)
+	let test = (function() {
+		let num = 0
+		return () => {
+			if(num ==2) {
+				num = 0
+			}
+			return num++
+		}
+	}())
+
+	function handle(i) {
+		for(let j = 0;j<imdList.length;j++) {
+				disList[j].style.background = "#fff"
+				imdList[j].style.display = "none"
+			}
+		disList[i].style.background = "#00B262"
+		imdList[i].style.display = "block"
+
+	}
+	
+</script>
+</html>
